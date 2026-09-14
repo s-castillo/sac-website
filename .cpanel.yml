@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/cp -Rf . $DEPLOYPATH
+    - /bin/rm -rf $DEPLOYPATH.git $DEPLOYPATH.gitignore $DEPLOYPATH.cpanel.yml
+    - find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - find $DEPLOYPATH -type d -exec chmod 755 {} \;

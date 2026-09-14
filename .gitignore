@@ -1,0 +1,6 @@
+.DS_Store
+.claude/
+
+# Local working docs — content drafts/exports, not part of the deployed site
+website-content-export.txt
+San_Antonio_Caregivers_Updated_Website_Content.txt
