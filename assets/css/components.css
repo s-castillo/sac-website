@@ -222,14 +222,18 @@
   display: none;
   flex-direction: column;
   gap: var(--space-4);
-  padding: var(--space-16) 0 var(--space-24);
-  border-top: 1px solid var(--color-border-light);
+  padding: 0;
+  border-top: 0 solid var(--color-border-light);
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--duration-base) var(--ease-subtle);
+  transition: max-height var(--duration-base) var(--ease-subtle),
+    padding var(--duration-base) var(--ease-subtle),
+    border-top-width var(--duration-base) var(--ease-subtle);
 }
 
 .mobile-menu.is-open {
+  padding: var(--space-16) 0 var(--space-24);
+  border-top-width: 1px;
   max-height: 480px;
 }
 
@@ -279,26 +283,53 @@
   overflow: hidden;
 }
 
+/* The photo is a full-bleed layer behind everything (see .hero__figure),
+   at every width. On tablet/desktop, .hero__bg lays a cream gradient
+   over it — solid behind the text, fading out toward the right — so the
+   text and the photo can each be wider than a rigid two-column split
+   would allow, instead of being boxed into separate columns. On mobile
+   (see the max-width query below) a solid purple tint replaces this
+   gradient and the text switches to white/centered. */
 .hero__bg {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
-    112deg,
-    rgba(250, 247, 242, 0.96) 43%,
-    rgba(250, 247, 242, 0.55) 71%,
-    rgba(250, 247, 242, 0.2) 92%
+    100deg,
+    rgba(250, 247, 242, 0.97) 22%,
+    rgba(250, 247, 242, 0.85) 40%,
+    rgba(250, 247, 242, 0.3) 58%,
+    rgba(250, 247, 242, 0.02) 72%
   );
   pointer-events: none;
 }
 
+.hero__figure {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero__figure img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 88% 25%;
+}
+
 .hero__grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 540px) 1fr;
-  align-items: center;
-  gap: var(--space-40);
   padding: var(--space-80) var(--space-32);
   max-width: 1320px;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
 }
 
 .hero__eyebrow {
@@ -330,11 +361,12 @@
   line-height: 1.625;
   color: var(--color-text-secondary);
   margin-top: var(--space-24);
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .hero__actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-12);
   margin-top: var(--space-32);
 }
@@ -364,37 +396,88 @@
   color: var(--color-text-secondary);
 }
 
-.hero__figure {
-  position: relative;
-  aspect-ratio: 1014 / 591;
-  width: 100%;
-  border-radius: 999px 0 0 999px;
-  overflow: hidden;
-  background: var(--color-white);
-}
-
-.hero__figure img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 65% 30%;
-}
-
-@media (max-width: 960px) {
-  .hero__grid {
-    grid-template-columns: 1fr;
-    padding: var(--space-64) var(--space-20);
+@media (max-width: 475px) {
+  .hero__bg {
+    display: none;
   }
 
-  .hero__figure {
-    aspect-ratio: 4 / 3;
-    border-radius: var(--radius-container);
+  .hero__grid {
+    padding: var(--space-64) var(--space-20);
+    text-align: center;
+  }
+
+  .hero__content {
+    max-width: none;
+  }
+
+  .hero__figure::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(108, 92, 167, 0.82);
+  }
+
+  .hero__figure img {
+    object-position: 50% 30%;
   }
 
   .hero__title {
     font-size: 40px;
+    color: var(--color-white);
+  }
+
+  .hero__title em {
+    color: var(--color-brand-orange);
+  }
+
+  .hero__eyebrow {
+    color: var(--color-brand-orange);
+  }
+
+  .hero__body {
+    color: rgba(255, 255, 255, 0.92);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__meta {
+    color: rgba(255, 255, 255, 0.75);
+    justify-content: center;
+  }
+
+  .hero__trust {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .hero__meta img {
+    filter: brightness(0) invert(1);
+  }
+
+  .hero .btn--outline {
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
+
+  .hero .btn--outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media (min-width: 476px) and (max-width: 900px) {
+  /* At this width the hero still shows the photo/gradient background
+     (the solid purple tint only kicks in below 475px), so the
+     outline button needs its own fill here to stay legible against
+     the image instead of just a thin border. */
+  .hero .btn--outline {
+    background: var(--color-white);
+  }
+
+  .hero .btn--outline:hover {
+    background: var(--color-tint-soft);
   }
 }
 
@@ -656,6 +739,10 @@
   flex-shrink: 0;
 }
 
+.callout__grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 @media (max-width: 900px) {
   .callout {
     padding: var(--space-40) var(--space-24);
@@ -667,6 +754,36 @@
 
 @media (max-width: 560px) {
   .callout__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Respite Care + Personal Assistance Services sitting side by side at
+   half width each, instead of stacked full-width blocks. */
+.highlight-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: var(--space-32);
+  margin-top: var(--space-32);
+}
+
+.highlight-row__stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+/* Confined to a half-width column now, so this always stacks — the
+   viewport-based breakpoint on the base .cta-row assumes it has the
+   full section width to work with. */
+.cta-row--stacked {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .highlight-row {
     grid-template-columns: 1fr;
   }
 }
@@ -810,19 +927,45 @@
    Split media section (For families / image + text)
    ========================================================= */
 
+/* Same full-bleed overlap technique as the hero, mirrored: the photo is
+   a full-bleed layer with the image content favoring the left, and the
+   gradient here is solid on the right (behind the text) fading out
+   toward the left, so the photo shows through on the left side instead
+   of the right. */
 .split {
-  display: grid;
-  grid-template-columns: minmax(0, 504px) 1fr;
-  gap: var(--space-64);
-  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.split__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* The text column overlaps the right portion of .split__figure's
+     68%-wide image (at narrower desktop widths the text's left edge
+     falls ~60% of the way across the section, well inside the photo),
+     so the tint has to stay solid/near-solid through that whole
+     overlap for legibility, and only fade out over the remaining
+     image area where there's no text sitting on top of it. */
+  background: linear-gradient(
+    to right,
+    rgba(250, 247, 242, 1) 30%,
+    rgba(250, 247, 242, 0.9) 50%,
+    rgba(250, 247, 242, 0.8) 62%,
+    rgba(250, 247, 242, 0.5) 72%,
+    rgba(250, 247, 242, 0.2) 85%,
+    rgba(250, 247, 242, 0.05) 100%
+  );
+  pointer-events: none;
 }
 
 .split__figure {
-  position: relative;
-  background: var(--color-tint-soft);
-  border-radius: var(--radius-container);
-  overflow: hidden;
-  aspect-ratio: 801 / 941;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 68%;
+  height: 100%;
+  z-index: 0;
 }
 
 .split__figure img {
@@ -831,15 +974,46 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 48% 28%;
 }
 
-@media (max-width: 960px) {
-  .split {
-    grid-template-columns: 1fr;
+.split__grid {
+  padding: var(--space-80) var(--space-32);
+  max-width: 1320px;
+}
+
+.split__content {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  /* Below this width the overlap treatment has too little room to stay
+     legible, so it falls back to a plain stacked layout: full-width
+     image on top, text below, no gradient needed since they no longer
+     share the same space. */
+  .split__bg {
+    display: none;
   }
+
   .split__figure {
-    order: -1;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
     aspect-ratio: 4 / 3;
+  }
+
+  .split__grid {
+    padding: var(--space-64) var(--space-20);
+    max-width: none;
+  }
+
+  .split__content {
+    max-width: none;
+    margin-right: 0;
   }
 }
 
@@ -1155,6 +1329,13 @@
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-container);
   padding: var(--space-32);
+  transition: transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
+}
+
+.careers-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .careers-card__title {
@@ -1516,6 +1697,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-20);
+  margin-top: var(--space-20);
+}
+
+.form-row:first-child {
+  margin-top: 0;
 }
 
 .form-field {
@@ -1638,7 +1824,6 @@
   height: var(--footer-logo-height);
   width: auto;
   opacity: 0.9;
-  filter: brightness(0) invert(1);
 }
 
 .footer__desc {
@@ -1711,8 +1896,8 @@
 
 .footer__bottom p {
   font-family: var(--font-body);
-  font-size: var(--text-small);
-  color: var(--color-dark-text-tertiary);
+  font-size: var(--text-body-md);
+  color: var(--color-dark-text-secondary);
 }
 
 .footer__bottom-note {

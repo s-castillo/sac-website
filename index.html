@@ -24,7 +24,7 @@
     <div class="container">
       <nav class="nav" aria-label="Primary">
         <a href="/" aria-label="San Antonio Caregivers — home">
-          <img class="nav__logo" src="/assets/images/logo/logo-full-black.png" alt="San Antonio Caregivers LLC">
+          <img class="nav__logo" src="/assets/images/logo/sac-lockup-color.svg" alt="San Antonio Caregivers LLC">
         </a>
 
         <div class="nav__links">
@@ -37,11 +37,6 @@
         </div>
 
         <div class="nav__actions">
-          <!-- TODO: replace # with tel:+1XXXXXXXXXX once a real phone number is provided -->
-          <a class="nav__call" href="#contact">
-            <img src="/assets/icons/icon-phone-purple.svg" alt="">
-            Call Us
-          </a>
           <a class="btn btn--primary" href="#contact">Talk With Our Care Team</a>
         </div>
 
@@ -58,10 +53,6 @@
         <a class="mobile-menu__link" href="#careers">Careers</a>
         <a class="mobile-menu__link" href="#contact">Contact</a>
         <div class="mobile-menu__actions">
-          <a class="nav__call" href="#contact">
-            <img src="/assets/icons/icon-phone-purple.svg" alt="">
-            Call Us
-          </a>
           <a class="btn btn--primary btn--full" href="#contact">Talk With Our Care Team</a>
         </div>
       </div>
@@ -74,9 +65,9 @@
     <section class="hero" id="home">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="container hero__grid">
-        <div>
+        <div class="hero__content">
           <p class="hero__eyebrow">Non-medical in-home care in San Antonio</p>
-          <h1 class="hero__title">Helping your loved one stay safely and comfortably at home.</h1>
+          <h1 class="hero__title">Helping your loved one stay <em>safely and comfortably</em> at home.</h1>
           <p class="hero__body">Whether your family needs occasional respite, companionship, help with everyday routines, or ongoing personal assistance, San Antonio Caregivers provides dependable support built around your loved one's needs, routines, dignity, and independence.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contact" data-animate-press>
@@ -96,7 +87,7 @@
           </p>
         </div>
         <div class="hero__figure">
-          <img src="/assets/images/hero/hero-caregiver.png" alt="A caregiver offering emotional support, holding hands with an elderly woman at home.">
+          <img src="/assets/images/hero/hero-image.jpg" alt="A caregiver helping an elderly man and woman with a craft activity at home.">
         </div>
       </div>
     </section>
@@ -220,25 +211,11 @@
           </div>
         </div>
 
-        <div style="margin-top:var(--space-32);" class="reveal">
-          <div class="service-card">
-            <h3 class="service-card__title" style="font-size:var(--text-h3);">Respite Care</h3>
-            <p class="body-lead">Temporary, dependable support for family caregivers who need time to rest, work, run errands, attend appointments, or simply recharge.</p>
-            <p style="font-family:var(--font-body); font-weight:600; font-size:var(--text-body-md); color:var(--color-text-primary); margin-top:var(--space-8);">Respite care may be helpful when:</p>
-            <ul class="checklist">
-              <li><img src="/assets/icons/icon-check.svg" alt="">A family caregiver needs a few hours away</li>
-              <li><img src="/assets/icons/icon-check.svg" alt="">Work or family responsibilities make it difficult to be present</li>
-              <li><img src="/assets/icons/icon-check.svg" alt="">A loved one should not be left alone for an extended period</li>
-              <li><img src="/assets/icons/icon-check.svg" alt="">A family needs temporary support during a particularly demanding period</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="margin-top:var(--space-32);" class="reveal">
+        <div class="highlight-row reveal">
           <div class="callout">
             <h3 class="callout__title">Personal Assistance Services</h3>
             <p class="callout__body">Personal Assistance Services include companionship and household support as well as assistance with everyday personal care needs.</p>
-            <ul class="callout__grid">
+            <ul class="callout__grid callout__grid--2col">
               <li><img src="/assets/icons/icon-check-white.svg" alt="">Feeding</li>
               <li><img src="/assets/icons/icon-check-white.svg" alt="">Transferring</li>
               <li><img src="/assets/icons/icon-check-white.svg" alt="">Toileting</li>
@@ -254,15 +231,27 @@
               <li><img src="/assets/icons/icon-check-white.svg" alt="">Taking blood pressure using an electronic cuff</li>
             </ul>
           </div>
-        </div>
 
-        <div style="margin-top:var(--space-48);" class="reveal">
-          <div class="cta-row">
-            <div>
-              <p class="cta-row__title">Not sure what type of support your family needs?</p>
-              <p class="cta-row__body">You do not need to have everything figured out before contacting us. Tell us what is becoming difficult, what your current routine looks like, and where your family could use help.</p>
+          <div class="highlight-row__stack">
+            <div class="service-card">
+              <h3 class="service-card__title">Respite Care</h3>
+              <p class="body-lead">Temporary, dependable support for family caregivers who need time to rest, work, run errands, attend appointments, or simply recharge.</p>
+              <p style="font-family:var(--font-body); font-weight:600; font-size:var(--text-body-md); color:var(--color-text-primary); margin-top:var(--space-8);">Respite care may be helpful when:</p>
+              <ul class="checklist">
+                <li><img src="/assets/icons/icon-check.svg" alt="">A family caregiver needs a few hours away</li>
+                <li><img src="/assets/icons/icon-check.svg" alt="">Work or family responsibilities make it difficult to be present</li>
+                <li><img src="/assets/icons/icon-check.svg" alt="">A loved one should not be left alone for an extended period</li>
+                <li><img src="/assets/icons/icon-check.svg" alt="">A family needs temporary support during a particularly demanding period</li>
+              </ul>
             </div>
-            <a class="btn btn--primary" href="#contact" data-animate-press>Talk With Our Care Team</a>
+
+            <div class="cta-row cta-row--stacked">
+              <div>
+                <p class="cta-row__title">Not sure what type of support your family needs?</p>
+                <p class="cta-row__body">You do not need to have everything figured out before contacting us. Tell us what is becoming difficult, what your current routine looks like, and where your family could use help.</p>
+              </div>
+              <a class="btn btn--primary btn--full" href="#contact" data-animate-press>Talk With Our Care Team</a>
+            </div>
           </div>
         </div>
       </div>
@@ -333,28 +322,27 @@
     </section>
 
     <!-- Support for families & respite care -->
-    <section class="section" style="background:var(--color-warm-bg); padding: var(--space-80) 0;">
-      <div class="container">
-        <div class="split reveal">
-          <div>
-            <p class="eyebrow">For families</p>
-            <h2 class="h2" style="margin-top:var(--space-16);">Support for your loved one — and breathing room for the people who care for them.</h2>
-            <p class="body-lead" style="margin-top:var(--space-24);">Caring for someone you love can gradually become more than one person or family can manage alone. Work, children, distance, appointments, household responsibilities, and your own need for rest do not disappear when a loved one needs more help.</p>
-            <p class="body-lead" style="margin-top:var(--space-16);">Asking for support does not mean stepping away from your role in their life. It can mean making sure your loved one has dependable help while giving the rest of the family room to rest, work, manage other responsibilities, and spend more time simply being family.</p>
-            <ul class="checklist checklist--circle" style="margin-top:var(--space-32); gap:var(--space-12);">
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Maintaining familiar routines at home</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Assistance when family members cannot be present</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Occasional or scheduled respite for family caregivers</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Companionship and meaningful social interaction</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Daily personal care needs</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Transportation to appointments and activities</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Everyday household support</li>
-              <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>A dependable local caregiving resource families can call when needs change</li>
-            </ul>
-          </div>
-          <div class="split__figure">
-            <img src="/assets/images/families-caregiver.png" alt="A caregiver assisting an elderly woman with a shared activity at home.">
-          </div>
+    <section class="split" style="background:var(--color-warm-bg);">
+      <div class="split__bg" aria-hidden="true"></div>
+      <div class="split__figure">
+        <img src="/assets/images/care-examples/care-4.jpg" alt="A caregiver laughing with an elderly client at home.">
+      </div>
+      <div class="container split__grid">
+        <div class="split__content reveal">
+          <p class="eyebrow">For families</p>
+          <h2 class="h2" style="margin-top:var(--space-16);">Support for your loved one — and breathing room for the people who care for them.</h2>
+          <p class="body-lead" style="margin-top:var(--space-24);">Caring for someone you love can gradually become more than one person or family can manage alone. Work, children, distance, appointments, household responsibilities, and your own need for rest do not disappear when a loved one needs more help.</p>
+          <p class="body-lead" style="margin-top:var(--space-16);">Asking for support does not mean stepping away from your role in their life. It can mean making sure your loved one has dependable help while giving the rest of the family room to rest, work, manage other responsibilities, and spend more time simply being family.</p>
+          <ul class="checklist checklist--circle" style="margin-top:var(--space-32); gap:var(--space-12);">
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Maintaining familiar routines at home</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Assistance when family members cannot be present</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Occasional or scheduled respite for family caregivers</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Companionship and meaningful social interaction</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Daily personal care needs</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Transportation to appointments and activities</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>Everyday household support</li>
+            <li><span class="checklist__bullet"><img src="/assets/icons/icon-check-circle.svg" alt=""></span>A dependable local caregiving resource families can call when needs change</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -578,7 +566,7 @@
               <li>Respite support</li>
               <li>Routine daily support based on the client's service plan</li>
             </ul>
-            <p class="careers-note">Specific details regarding current openings, pay, scheduling, employment classification, benefits, and position requirements will be added once formally confirmed. Contact us for current opportunities.</p>
+            <p class="careers-note" hidden>Specific details regarding current openings, pay, scheduling, employment classification, benefits, and position requirements will be added once formally confirmed. Contact us for current opportunities.</p>
           </div>
         </div>
 
@@ -877,7 +865,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <img class="footer__logo" src="/assets/images/logo/logo-full-black.png" alt="San Antonio Caregivers LLC">
+          <img class="footer__logo" src="/assets/images/logo/sac-lockup-horizontal-white.svg" alt="San Antonio Caregivers LLC">
           <p class="footer__desc">Dependable, compassionate non-medical in-home care supporting safety, dignity, independence, and everyday quality of life for individuals and families throughout San Antonio and surrounding communities.</p>
           <div class="footer__contact">
             <!-- TODO: replace placeholders with real contact details -->
