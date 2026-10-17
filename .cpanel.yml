@@ -2,14 +2,9 @@
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
-    - /bin/mkdir -p $DEPLOYPATH/assets/images/care-examples
-    - /bin/cp -f index.html $DEPLOYPATH
-    - /bin/cp -Rf assets/css assets/js assets/icons $DEPLOYPATH/assets/
-    - /bin/mkdir -p $DEPLOYPATH/assets/images/hero
-    - /bin/cp -f assets/images/hero/hero-image.jpg $DEPLOYPATH/assets/images/hero/
-    - /bin/mkdir -p $DEPLOYPATH/assets/images/logo $DEPLOYPATH/assets/images/map
-    - /bin/cp -f assets/images/logo/sac-lockup-color.svg assets/images/logo/sac-lockup-horizontal-white.svg $DEPLOYPATH/assets/images/logo/
-    - /bin/cp -f assets/images/map/service-area-map.png $DEPLOYPATH/assets/images/map/
-    - /bin/cp -f assets/images/care-examples/care-4.jpg $DEPLOYPATH/assets/images/care-examples/
-    - find $DEPLOYPATH -type f -exec chmod 644 {} \;
-    - find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -f *.html $DEPLOYPATH
+    - /bin/cp -Rf assets $DEPLOYPATH
+    - find $DEPLOYPATH -maxdepth 1 -type f -name '*.html' -exec chmod 644 {} \;
+    - find $DEPLOYPATH/assets -type f -exec chmod 644 {} \;
+    - find $DEPLOYPATH/assets -type d -exec chmod 755 {} \;
