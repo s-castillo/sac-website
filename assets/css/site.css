@@ -330,6 +330,10 @@ ul, ol { padding: 0; list-style: none; }
 .form-done { display: flex; gap: .75rem; align-items: flex-start; background: #e4f4f6; border-radius: 10px; padding: 1rem; }
 .form-done .ic { width: 28px; height: 28px; color: #10646e; }
 .form-done p { color: var(--ink-2); }
+.form-error { display: flex; gap: .75rem; align-items: flex-start; background: #fdebe3; border-radius: 10px; padding: 1rem; }
+.form-error .ic { width: 28px; height: 28px; flex: none; color: #a23a14; }
+.form-error p { color: var(--ink-2); }
+.form-error a { color: var(--purple-d); font-weight: 700; text-decoration: underline; }
 
 .contact-cards { display: grid; gap: .7rem; margin-top: 1.5rem; max-width: 30rem; }
 .contact-cards li { display: flex; align-items: center; gap: .9rem; background: var(--t); border: 1px solid var(--ic); border-radius: var(--r); padding: .8rem 1.1rem; }
