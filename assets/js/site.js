@@ -27,8 +27,8 @@
      While an address is blank the form sends nothing and shows the "call or email
      us" message instead of a false "thanks". */
   var FORM_ENDPOINTS = {
-    contact: '',   // Contact page: "Request care information"
-    careers: ''    // Careers page: "Caregiver application"
+    contact: 'https://formspree.io/f/xwlokqld',   // Contact page: "Request care information" (Formspree: General Inquiries/ Leads)
+    careers: 'https://formspree.io/f/mqpqklqq'    // Careers page: "Caregiver application" (Formspree: Employment Application Inquiries)
   };
 
   document.querySelectorAll('form[data-form]').forEach(function (form) {
