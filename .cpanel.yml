@@ -4,7 +4,9 @@ deployment:
     - export DEPLOYPATH=$HOME/public_html/
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -f *.html $DEPLOYPATH
+    - /bin/cp -f 404.html $DEPLOYPATH/404.shtml
     - /bin/cp -Rf assets $DEPLOYPATH
     - find $DEPLOYPATH -maxdepth 1 -type f -name '*.html' -exec chmod 644 {} \;
+    - chmod 644 $DEPLOYPATH/404.shtml
     - find $DEPLOYPATH/assets -type f -exec chmod 644 {} \;
     - find $DEPLOYPATH/assets -type d -exec chmod 755 {} \;
