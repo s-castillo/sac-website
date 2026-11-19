@@ -5,8 +5,9 @@ deployment:
     - /bin/mkdir -p $DEPLOYPATH
     - /bin/cp -f *.html $DEPLOYPATH
     - /bin/cp -f 404.html $DEPLOYPATH/404.shtml
+    - /bin/cp -f sitemap.xml robots.txt $DEPLOYPATH
     - /bin/cp -Rf assets $DEPLOYPATH
     - find $DEPLOYPATH -maxdepth 1 -type f -name '*.html' -exec chmod 644 {} \;
-    - chmod 644 $DEPLOYPATH/404.shtml
+    - chmod 644 $DEPLOYPATH/404.shtml $DEPLOYPATH/sitemap.xml $DEPLOYPATH/robots.txt
     - find $DEPLOYPATH/assets -type f -exec chmod 644 {} \;
     - find $DEPLOYPATH/assets -type d -exec chmod 755 {} \;
